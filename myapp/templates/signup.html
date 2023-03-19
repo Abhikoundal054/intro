@@ -1,12 +1,13 @@
 {% load static %}
 {%include 'header.html'%}
 {% block content %}
-  <h2>signup</h2> 
+  <h2 style="font-family:Georgia, serif; text-align:center;">Sign up</h2> 
   <form method="post"> 
      {% csrf_token %} 
      {{form.as_p}} 
-    <button type ='submit'>signup</button>  
-</form>
+     <div id="sign" style="font-family:Georgia, serif; text-align:center;" >
+    <button type ='submit'>Signup</button>  
+</form></div>
 {% endblock %}
     
         {% include 'footer.html ' %}

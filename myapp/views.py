@@ -3,7 +3,7 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.urls import reverse_lazy
 #from django.views import generic
-from django.contrib.auth import login, authenticate ,login as authlogin
+from django.contrib.auth import login, authenticate ,login as authlogin ,logout
 from myapp.forms import LoginForm
 from django.contrib.auth.decorators import login_required
 from myapp import views
@@ -23,6 +23,9 @@ def index2(request):
 
 def newarr1(request):
      return  render(request,'signup.html',{})
+
+def logout_view(request):
+     return  render(request,'logout.html',{})
 
 def login(request):
      return  render(request,'login.html',{})
@@ -50,15 +53,17 @@ def login_page(request):
             # Save session as cookie to login the user
             authlogin(request, user)
             # Success, now let's login the user.
-            return render(request, 'index2.html')
+            return render(request, 'index.html')
         else:
             # Incorrect credentials, let's throw an error to the screen.
-            return render(request, 'login.html', {'error_message': 'Incorrect username and / or password.'})
+            return render(request, 'index.html', {'error_message': 'Incorrect username and / or password.'})
     else:
         # No post data availabe, let's just show the page to the user.
         return render(request, 'login.html')
     
-    
+def logout_view(request):
+    logout(request)
+    return redirect('index')   
     
     
     # message=''

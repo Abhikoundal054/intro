@@ -1,12 +1,13 @@
 {% load static %}
 {%include 'header.html'%}
 {% block content %}
+<div >
     <div class="container">
         <form action="" method="post">
             {% csrf_token %}
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
+                    <div  class="panel-heading">Login</div>
                     <div class="panel-body">
                         {% if error_message %}
                             <p class="bg-danger p-d ml-b">{{ error_message }}</p>
@@ -25,12 +26,14 @@
                         </div>
                         <div class="col-md-6 col-md-offset-4">
                             <input name="login" type="submit" value="Login" class="btn btn-success" /> &nbsp;
-                            <a href="{% url 'signup' %}">or Register</a>
+                            <button class="btn btn-success"><a style="font-family:Georgia, serif;font-color:form-white;" href="{% url 'signup' %}">Register</a></button>
                         </div>
                     </div>
                 </div>
             </div>
+        
         </form>
+        </div>
     </div>
 {% endblock %}
         {% include 'footer.html ' %}

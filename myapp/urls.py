@@ -22,6 +22,7 @@ urlpatterns = [
     path('signup/',signup1, name='signup'),
     path('login/',login_page, name='login'),
     path('index2/',index2, name='index2'),
+    path('logout/',logout_view, name='logout'),
    
 
 
